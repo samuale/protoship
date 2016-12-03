@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://tileset/tileset3.tex" type="Texture" id=1]
+[ext_resource path="res://escenas/player1.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -16, -16, 33.6485, -16, 33.6485, 7.27273, -16, 7.27273 )
+
+[node name="tileset" type="Node2D"]
+
+[node name="1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 608 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( -310.75, 900 )
+transform/scale = Vector2( 7.28906, 10.125 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.741764, 0, 0, 0.54321, -9.08354, 24.7309 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -9.08354, 24.7309 )
+transform/scale = Vector2( 0.741764, 0.54321 )
+build_mode = 0
+polygon = Vector2Array( -16, -16, 33.6485, -16, 33.6485, 7.27273, -16, 7.27273 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="2" type="Sprite" parent="KinematicBody2D"]
+
+transform/pos = Vector2( -9.36334, 20.9383 )
+transform/scale = Vector2( 0.707396, 0.54321 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="player1" parent="." instance=ExtResource( 2 )]
+
+

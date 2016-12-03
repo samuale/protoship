@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://player/player1.gd" type="Script" id=1]
+[ext_resource path="res://player/disparo1/balaunoplayer.png" type="Texture" id=2]
+[ext_resource path="res://player/imagen.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 49.2811, -44.8774, 52.2214, -25.0299, 0.0299072, 63.1811, -49.2212, -27.2352, -0.705185, -65.46 )
+
+[node name="player1" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( 49.2811, -44.8774, 52.2214, -25.0299, 0.0299072, 63.1811, -49.2212, -27.2352, -0.705185, -65.46 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="puntodisparo" type="Position2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 0.218811, 107.726 )
+
+[node name="Spritepunto" type="Sprite" parent="puntodisparo"]
+
+transform/pos = Vector2( 7.62939e-06, -1.32684 )
+texture = ExtResource( 2 )
+
+[node name="Spritejugador" type="Sprite" parent="."]
+
+editor/display_folded = true
+texture = ExtResource( 3 )
+flip_h = true
+flip_v = true
+region_rect = Rect2( 271, 132, 97, 120 )
+
+[node name="Particles2D" type="Particles2D" parent="Spritejugador"]
+
+visibility/visible = false
+transform/pos = Vector2( -1.91794, -55.0525 )
+transform/scale = Vector2( 1.25504, 1 )
+config/amount = 32
+config/lifetime = 2.0
+config/preprocess = 0.1
+config/half_extents = Vector2( 20, 0 )
+params/direction = 0.0
+params/spread = 10.0
+params/linear_velocity = -100.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 4.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 0.0
+params/anim_initial_pos = 0.0
+randomness/initial_size = -1.0
+color/color = Color( 0.0823529, 0.482353, 0.552941, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+
